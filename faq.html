@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ</title>
+  
+  
+</head>
+
+<style>
+    
+  body {
+    background-color: blueviolet;
+    margin: auto;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  main {
+    margin: 2em 8em;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    background: url("faq-accordion-card-main/images/bg-pattern-desktop.svg") center no-repeat,
+              white;
+    background-position-x: -70px;      
+    min-height: 25rem;
+    min-width: 30rem;
+    background-size: 45%;
+    }
+  
+  .faq {
+    display: flex;
+    flex-direction: column;
+    min-width: 16rem;
+    margin: 2rem 2rem 2rem 2rem;
+    padding: 0 2rem 0 2rem;
+    }
+
+  .illustration {
+    background: url("faq-accordion-card-main/images/illustration-woman-online-desktop.svg") center no-repeat;
+    min-width: 20rem;
+    max-width: 500px;
+    width: 100%;
+    background-size: 100%;
+    background-position-x: -70px;      
+    }
+
+  .illustration::after {
+    content: " ";
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 150px;
+    left: 1em;
+    background-size: contain;
+    background: url("faq-accordion-card-main/images/illustration-box-desktop.svg") no-repeat;
+    animation: 1s ease-in-out infinite alternate box;
+    }
+  
+
+  @media screen and (max-width: 1000px) {
+
+  main {
+    margin:  4rem 2rem 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    background: url("faq-accordion-card-main/images/bg-pattern-mobile.svg") center no-repeat,
+            white;
+    background-size: 210px;
+    background-position-y: 30px; 
+    align-items: center;
+    }
+    
+  .illustration {
+    background: url("faq-accordion-card-main/images/illustration-woman-online-mobile.svg") center no-repeat;
+    min-height: 150px;
+    width: 100%;
+    background-size: contain;
+    position: absolute;
+    top: 20px;
+    }
+
+  .illustration::after {
+    background: none;
+    }
+            
+  .faq {
+    padding: 4rem 2rem 0 2rem;
+    margin: 0 2rem 2rem 2rem;
+    }
+  }
+  
+  .question {
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    padding-top: 1rem;
+    align-items: center;
+  }
+  
+  input {
+    display: none;
+  }
+
+  label {
+    color: hsl(238, 29%, 16%);
+    display: flex;
+    transition: 200ms linear;
+    justify-content: space-between;
+  }
+  
+  label:hover {
+    color: hsl(14, 88%, 65%);
+  }
+
+  label::after {
+    content: url("faq-accordion-card-main/images/icon-arrow-down.svg");
+    transition: 200ms linear;
+  }
+
+  .answer {
+  max-height: 0;
+  color: hsl(240, 6%, 50%);
+  overflow: hidden;
+  transition: 200ms linear;
+  font-size: 14px;
+}
+
+  input:checked + .question label {
+  font-weight: bold;
+  }
+
+  input:checked + .question label::after {
+  transform: rotate(180deg);
+  }
+
+  input:checked + .question .answer {
+  max-height: 3rem;
+  padding-bottom: 2rem;
+  }
+
+@keyframes box {
+  0%   { top: 220px; }
+  100% { top: 170px; }
+}
+</style>
+
+<body>
+  <main class="card">
+    <div class="illustration"></div>
+
+    <div class="faq">
+      <h2>FAQ</h2>
+  
+      <input type="checkbox" id="q-1">
+      <div class="question">
+        <label for="q-1">How many team members can I invite?</label>
+        <p class="answer">You can invite up to 2 additional users on the Free plan. There is no limit on 
+          team members for the Premium plan.</p>
+      </div>
+  
+      <input type="checkbox" id="q-2">
+      <div class="question">
+        <label for="q-2">What is the maximum file upload size?</label>
+        <p class="answer">No more than 2GB. All files in your account must fit your allotted storage space.</p>
+      </div>
+  
+      <input type="checkbox" id="q-3">
+      <div class="question">
+        <label for="q-3">How do I reset my password?</label>
+        <p class="answer"> Click “Forgot password” from the login page or “Change password” from your profile page.
+          A reset link will be emailed to you.</p>
+      </div>
+  
+      <input type="checkbox" id="q-4">
+      <div class="question">
+        <label for="q-4">Can I cancel my subscription?</label>
+        <p class="answer">Yes! Send us a message and we’ll process your request no questions asked.</p>
+      </div>
+  
+      <input type="checkbox" id="q-5">
+      <div class="question">
+        <label for="q-5">Do you provide additional support?</label>
+        <p class="answer"> Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+      </div>
+    </div>
+  </main>   
+
+</body>
+</html>
